@@ -1,0 +1,18 @@
+
+spring:
+  sql:
+    init:
+      platform: postgres
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/meli_db
+    username: postgres
+    password: postgresql1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format-sql: true
+      show-sql: true
