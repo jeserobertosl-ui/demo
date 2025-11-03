@@ -38,9 +38,9 @@ public class ClientRESTController{
     }
 
     @PostMapping("/add")
-    public void add(@RequestBody Client _client)
+    public String add(@RequestBody Client _client)
     {
-        service.add(_client);
+        return service.add(_client);
     }
 
     @PutMapping("/update")
@@ -49,7 +49,7 @@ public class ClientRESTController{
         Optional<Client> client = service.get(_client.getId_client());
 
         if (client.isPresent()) {
-            service.update(_client);
+            service.add(_client);
         }
     }
 

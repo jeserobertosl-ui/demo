@@ -29,14 +29,14 @@ public class ClientService{
         return client_repository.findById(_id);
     }
 
-    public void add(Client _client)
+    public String add(Client _client)
     {
-        client_repository.save(_client);
-    }
-
-    public void update(Client _client)
-    {
-        client_repository.save(_client);
+        Client client = client_repository.save(_client);
+        if (!client.getClient_name().isEmpty() &&
+            !client.getClient_address().isEmpty()) {
+            return "Client added";
+        }
+        return "Couldn't add client";
     }
 
     public void delete(Long _id)
